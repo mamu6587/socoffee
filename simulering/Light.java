@@ -1,4 +1,3 @@
-package trafiksimulering;
 
 public class Light {
     private int period;
@@ -31,9 +30,13 @@ public class Light {
     }
 
     public String  toString()  {
+    	return "sak";
+    	
+    	/*
     	return "Light(period = " +this.period + 
     				"time = " +this.time + 
     				"green =  "+ this.green +")";
+    	*/
     	//...
     	}
 	

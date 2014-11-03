@@ -1,6 +1,6 @@
-package trafiksimulering;
 
-public class Lane {
+
+public class Lane{
 
     public static class OverflowException extends RuntimeException {
         // Undantag som kastas när det inte gick att lägga 
@@ -10,9 +10,12 @@ public class Lane {
     protected CarPosition[] theLane;
 
     public Lane(int n) {
-    this.theLane = new CarPosition[n] ;
+    this.theLane = new CarPosition[n];
+    for(int i = 0;i < n;++i){
+    	this.theLane[i] = new CarPosition(this);
+    }
     	
-    	for(int i = n;i > 0;i--){
+    	for(int i = (n-1);i > 0;--i){
     		this.theLane[i].setForward(this.theLane[i-1]) ;
     	}
 	// Konstruerar ett Lane-objekt med plats för n fordon
@@ -44,21 +47,24 @@ public class Lane {
     	}
     }
 
-    public void step() {
-    	for(int i = 1; i < theLane.length;i++ ){if(this.theLane[i].moveForward()){
-    		Car a = this.theLane[i].getCar();
-    		a.step();
-    		//this.theLane[i].getCar().step;
-    		
-    		this.theLane[i-1].setCar(a);
-    		}
-    	}
-	// Stega fram alla fordon (utom det på plats 0) ett steg 
-        // (om det går). (Fordonet på plats 0 tas bort utifrån 
-	// mm h a metoden nedan.)
-    }
-
-    public Car getFirst() {
+	    public void step() {
+	    	for(int i = 1; i < theLane.length-1;i++ ){
+	    		if(this.theLane[i].moveForward()){
+	    			if(this.theLane[i].getCar() != null){
+	    				Car a = this.theLane[i].getCar();
+	    				a.step();
+	    		//this.theLane[i].getCar().step;
+	    		
+	    				this.theLane[i-1].setCar(a);
+	    			}	
+	    			}			
+	    		}	
+		// Stega fram alla fordon (utom det på plats 0) ett steg 
+	        // (om det går). (Fordonet på plats 0 tas bort utifrån 
+		// mm h a metoden nedan.)
+	    }
+	
+	    public Car getFirst() {
     	if(this.theLane[0].getCar() != null){
     		Car temp = this.theLane[0].getCar();
     				this.theLane[0].setCar(null);
@@ -78,7 +84,7 @@ public class Lane {
 
 
     public boolean lastFree() {
-    	if(this.theLane[this.theLane.length-1] == null){
+    	if(this.theLane[this.theLane.length-1].getCar() == null){
     		return true;
     				}
     	return false;
@@ -87,8 +93,8 @@ public class Lane {
 
     public void putLast(Car c) throws OverflowException {
     	if (this.lastFree()){
-    		this.theLane[this.theLane.length - 1].setCar(c);
-    				c.setPosition(this.theLane[this.theLane.length - 1]);
+    		this.theLane[this.theLane.length - 1].setCar(c); //sätt carpositions current till car
+    		c.setPosition(this.theLane[this.theLane.length - 1]); //sätt bilens currentposition
     	
     	}
  
@@ -97,13 +103,19 @@ public class Lane {
     }
 
     public String toString() {
+    	String temp ="";
+    	for (int i =0; i < this.getLength() - 1; i++ ){
+    		temp +=  " " + this.theLane[i].toString() + " |" ;
+    	}
+    	return temp ;
+    	/*
     	String  temp = "";
     	for(int i = 0;i < this.theLane.length;i++){
     	temp += "index " + i + "= " + this.theLane[i];
     	}
     //	return {
     	return	temp;
-    		
+    		*/
     	//kolla att hela filen skrivs ut, samt fundera över hur mkt som ska skrivas ut
     	}
 

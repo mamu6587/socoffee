@@ -1,4 +1,4 @@
-package trafiksimulering;
+
 
 public class Car {
 
@@ -50,17 +50,14 @@ public class Car {
     	this.destination = destination;}
     //...
 
-    public boolean equals(Car car){
-    	if(this.destination == car.destinaton){
-    		if(this.bornTime == car.bornTime){return true;}
-    	}
-    	return false;
-    }
-    
+   
     public String toString() {
-    	return "Car(bornTime = " + this.bornTime +
+    	
+    	return "x";
+    }
+    /*	return "Car(bornTime = " + this.bornTime +
     "currentPosition = " + this.currentPosition + 
     	"destination = 	 " + this.destination + ")";
     	}
-	
+	*/
 }

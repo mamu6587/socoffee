@@ -1,4 +1,4 @@
-package trafiksimulering;
+
 
 /*
   Modell för trafiksimulering
@@ -68,7 +68,28 @@ public class Simulation {
     public static void main(String [] args) {
 	// Skapar ett TrafficSystem
 	// Utför stegningen, anropar utskriftsmetoder
+    // args skall innehålla
+    	
+    	//int arrivalProb, int turnProb, 
+        	//	int lengthTurn, int lengthStart, int period, int green I DEN ORDNINGEN
+    	//lägg in args 6 = s2's gröntid
+    	//samt args 7 = hur länge skall simulationen hållas
+    	//fyll på med args här efter behov
+    TrafficSystem	trafficSys = new TrafficSystem(Integer.parseInt(args[0]), 
+    		Integer.parseInt(args[1]), Integer.parseInt(args[2]), 
+    		Integer.parseInt(args[3]), Integer.parseInt(args[4]), 
+    		Integer.parseInt(args[5])
+    		);
+    
+    
+    
+    // tidsloop
+    for(int i = 0; i < Integer.parseInt(args[6]); i++){
+    	trafficSys.step();
+    	trafficSys.print();
+    }
 
+    trafficSys.printStatistics();
 	//...
 
     }

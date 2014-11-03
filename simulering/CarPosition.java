@@ -1,4 +1,3 @@
-package trafiksimulering;
 
 
 // Håller i en bil och känner till sina "grannar". 
@@ -22,7 +21,7 @@ public class CarPosition{
 	}
 	
 	public boolean moveForward()
-	{ if (this.forward.currentCar == null){
+	{ if (this.forward.getCar() == null){
 		return true;
 	}
 		return false;
@@ -62,9 +61,17 @@ public class CarPosition{
 	
 	
 	public String toString(){
+		if (this.currentCar != null) {
+		return "X";
+		}
+		else {
+			return " ";
+		}
+			/*
 		return "CarPosition(currentCar = "+ this.currentCar + 
 "owner = " + this.owner + 
 "forward =" + this.forward + 
 "turn = "+	this.turn;
+*/
 	}
 }
