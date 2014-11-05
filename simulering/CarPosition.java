@@ -1,77 +1,77 @@
 
 
-// Håller i en bil och känner till sina "grannar". 
+// Contains a car and knows its "neighbours" 
 public class CarPosition{
 	
-	private Car currentCar = null; // null om ingen bil finns på positionen
+    private Car currentCar = null; // null if there is no car at the position
 	
-	private Lane owner;
+    private Lane owner;
 	
-	private CarPosition forward;
-	private CarPosition turn;
+    private CarPosition forward;
+    private CarPosition turn;
 	
-	public CarPosition(Lane a_Owner)
-	{
-		owner = a_Owner;
+    public CarPosition(Lane a_Owner)
+    {
+        owner = a_Owner;
+    }
+	
+    public boolean isEnd(CarPosition target)
+    {
+        return owner.matchEnd(target);
+    }
+	
+    public boolean moveForward()
+    { if (this.forward.getCar() == null){
+            return true;
 	}
-	
-	public boolean isEnd(CarPosition target)
-	{
-		return owner.matchEnd(target);
-	}
-	
-	public boolean moveForward()
-	{ if (this.forward.getCar() == null){
-		return true;
-	}
-		return false;
-		// Flytta bilen fram till forward
-	}
+        return false;
+	       
+    }
 		
-		public boolean turn()
-		{ if (this.turn.currentCar == null){
-		return true;
-		}
-		else return false;
-			// Flytta bilen till turn
-		}
+    public boolean turn()
+    { if (this.turn.currentCar == null){
+            return true;
+        }
+        else return false;
+        // Flytta bilen till turn
+    }
 
-	public void setTurn(CarPosition turn) {
-		this.turn = turn;
-	}
+    public void setTurn(CarPosition turn) {
+        this.turn = turn;
+    }
 
-	public CarPosition getTurn() {
-		return turn;
-	}
+    public CarPosition getTurn() {
+        return turn;
+    }
 	
-	public Car getCar(){
-		return currentCar;
-	}
+    public Car getCar(){
+        return currentCar;
+    }
 	
-	public void setCar(Car car){
-		this.currentCar = car;
-	}
+    public void setCar(Car car){
+        this.currentCar = car;
+    }
 	
-	public CarPosition getForward(){
-		return this.forward;
-	}
-	public void setForward(CarPosition forward){
-		this.forward = forward;
-	}
+    public CarPosition getForward(){
+        return this.forward;
+    }
+    public void setForward(CarPosition forward){
+        this.forward = forward;
+    }
 	
 	
-	public String toString(){
-		if (this.currentCar != null) {
-		return "X";
-		}
-		else {
-			return " ";
-		}
-			/*
-		return "CarPosition(currentCar = "+ this.currentCar + 
-"owner = " + this.owner + 
-"forward =" + this.forward + 
-"turn = "+	this.turn;
-*/
-	}
+    public String toString(){
+        if (this.currentCar != null) {
+            return "X";
+        }
+        else {
+            return " ";
+        }
+        /*
+          return "CarPosition(currentCar = "+ this.currentCar + 
+          "owner = " + this.owner + 
+          "forward =" + this.forward + 
+          "turn = "+	this.turn;
+        */
+    }
 }

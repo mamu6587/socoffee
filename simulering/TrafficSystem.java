@@ -3,35 +3,36 @@ import java.util.Random;
 import java.io.*;
 
 public class TrafficSystem {
-    // Definierar de vägar och signaler som ingår i det 
-    // system som skall studeras.
-    // Samlar statistik
+    // Defines the lanes and traffic lights included in the traffic systems that are studied
+    // 
+    // Gathers statistics
     
-    // Attribut som beskriver beståndsdelarna i systemet
-   private Lane  r0;
+    // Attributes that describes the parts of the system
+    private Lane  r0;
     private Lane  r1;
     private Lane  r2;
     private Light s1;
     private Light s2;
 
     
-	public int arrivalProb;
-	public int turnProb;
-	private int currentTime;
-    // Diverse attribut för simuleringsparametrar (ankomstintensiteter,
-    // destinationer...)
+    // Attributes for simulation parameters (probabilities for arraivals and destinations
+    public int arrivalProb;
+    public int turnProb;
+    private int currentTime;
 
-    // Diverse attribut för statistiksamling
-    //....    
-	private int maxTime;
-	private int sumTime;
-	private int forwardBlocked; //behöver implementeras
-	private int sumCars;
+    // Attributes for simulation statistics
     
+    private int maxTime;
+    private int sumTime;
+    private int forwardBlocked; //Needs to be implemented
+    private int sumCars;
+    
+    //Time during the simulation    
     private int time;
 
     public TrafficSystem(int arrivalProb, int turnProb, 
-    		int lengthTurn, int lengthStart, int period, int green) {
+                         int lengthTurn, int lengthStart, 
+                         int period, int green){
     	this.r0 = new Lane(lengthStart);
     	this.r1 = new Lane(lengthTurn);
     	this.r2 = new Lane(lengthTurn);
@@ -46,28 +47,30 @@ public class TrafficSystem {
     	}
 
     public void readParameters() {
-	// Läser in parametrar för simuleringen
-	// Metoden kan läsa från terminalfönster, dialogrutor
-	// eller från en parameterfil. Det sista alternativet
-	// är att föredra vid uttestning av programmet eftersom
-	// man inte då behöver mata in värdena vid varje körning.
-        // Standardklassen Properties är användbar för detta. 
+	// Reads the parameters for the simulation
+	// The method can read from the terminal, dialogue windows 
+        // or from a parameterfile. A parameterfile is preferrable 
+        // when testing many different parameters since one does 
+        // not have to enter new values for each simulation.
+        // The standard class Properties is useful for this purpose.
     	
-    	// period på lights skall vara samma
+    	// The period should be the same for both lights
     	
-    	// variabel för ankomstintensitet
+    	// Variable for arrival probabiity
 
     	
-    	// variabel för svängintensitet
+    	// variable for turn probability
 
     }
 
     public void step() {
-	// Stega systemet ett tidssteg m h a komponenternas step-metoder
-	// Skapa bilar, lägg in och ta ur på de olika Lane-kompenenterna
+        //Step the system one time step by using the components step methods
+	// Create cars, put them in the last place and remove them from 
+        // the different Lane-components
+
     	
 	    	if(s1.isGreen()){
-	    	// summera tid för utplockade bilar och jämför med tidigare max
+                    // summarize the time for removed cars and compare with previous max times
 	    		if (r1.firstCar() != null){
 	    		int timeInSystem = this.time - (r1.getFirst()).getTime();
 	        	sumTime += timeInSystem;
@@ -105,7 +108,7 @@ public class TrafficSystem {
     	
     
 
-    	// skapa en bil utifrån ankomstintensitet
+    	// Create a car with regards to arrival probability
     	/*
     	Random carMaybe = new Random();
     	int randomInt = carMaybe.nextInt(10);
@@ -125,7 +128,7 @@ public class TrafficSystem {
     }
 
     public void printStatistics() {
-	// Skriv statistiken samlad så här långt
+	// Print the gathered statistics
     	//int meanTime = sumTime/sumCars;
     //	System.out.println("maxTime = " + this.maxTime +" " +
     	//			"meanTime = " + meanTime + " "
@@ -137,8 +140,7 @@ public class TrafficSystem {
     	System.out.println("|" + this.r1.toString()  + this.r0.toString() );
     	System.out.println("|" + this.r2.toString());
     	
-	// Skriv ut en grafisk representation av kösituationen
-	// med hjälp av klassernas toString-metoder
+        // Print a graphical representation by using the Classes toString-methods
     }
 
 }

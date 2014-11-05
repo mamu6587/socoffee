@@ -1,8 +1,8 @@
 
 public class Light {
     private int period;
-    private int time;  // Intern klocka: 0, 1, ... period-1, 0, 1 ...
-    private int green; // Signalen grön när time<green 
+    private int time;  // Internal clock: 0, 1, ... period-1, 0, 1 ...
+    private int green; // Signal is green when time<green 
 
     public Light(int period, int green) {
     	//...
@@ -18,7 +18,7 @@ public class Light {
     	else{
     	this.time++;
     	}
-    	// Stegar fram klocka ett steg
+    	// Steps the clock one step
     }
 
     public boolean isGreen()   {
@@ -26,7 +26,7 @@ public class Light {
     		return true;
     	}
     	else return false;
-    	// Returnerar true om time<green, annars false
+    	// Returns true if time<green, else false
     }
 
     public String  toString()  {
