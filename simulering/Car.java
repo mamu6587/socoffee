@@ -3,7 +3,7 @@
 public class Car {
 
     private int bornTime;
-    private CarPosition destination; 
+    private boolean Turn;
 
     private CarPosition currentPosition;
     
@@ -21,9 +21,9 @@ public class Car {
     	}*/
     }
     
-    public Car(int bornTime, CarPosition destination, CarPosition currentPosition){
+    public Car(int bornTime, CarPosition currentPosition,  boolean turn){
     	this.bornTime = bornTime;
-    	this.destination = destination;
+    	this.Turn = turn;
     	this.currentPosition = currentPosition;
     	
   
@@ -38,21 +38,29 @@ public class Car {
     	return this.currentPosition;
     }
     
-    public CarPosition getDestination(){
-    	return this.destination;
+    public boolean getTurn(){
+    	return this.Turn;
     }
     
     public void setPosition(CarPosition position){
     	this.currentPosition = position;
     }
     
-    public void setDestination(CarPosition destination){
-    	this.destination = destination;}
+    public void setTurn(boolean turn){
+    	this.Turn = turn;
+    	}
     //...
+    
 
    
     public String toString() {
     	
+    	/*
+    	return ("borntime = " + this.bornTime +
+    					"currentposition = " this.currentPosition +
+    					"destination = " this.destination);
+	*/
+
     	return "x";
     }
     /*	return "Car(bornTime = " + this.bornTime +

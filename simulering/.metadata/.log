@@ -766,3 +766,30 @@ org.eclipse.core.runtime.CoreException: The Class File Viewer cannot handle the 
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1450)
 !SUBENTRY 1 org.eclipse.jdt.ui 4 996 2014-11-03 13:19:01.088
 !MESSAGE The Class File Viewer cannot handle the given input ('org.eclipse.ui.ide.FileStoreEditorInput').
+!SESSION 2014-11-11 13:08:54.039 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=solaris, ARCH=x86, WS=gtk, NL=en
+Command-line arguments:  -os solaris -ws gtk -arch x86
+
+!ENTRY org.eclipse.jface 2 0 2014-11-11 13:10:49.279
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-11 13:10:49.279
+!MESSAGE A conflict occurred for ALT+CTRL+R:
+Binding(ALT+CTRL+R,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.CompareWithRevisionCommand,URL...,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3991b7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+R,
+	ParameterizedCommand(Command(org.python.pydev.debug.setnext,Set Next Statement,
+		,
+		Category(org.python.pydev.ui.category.run,PyDev - Run,Python run category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@18d94e1,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)

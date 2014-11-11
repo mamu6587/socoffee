@@ -48,7 +48,7 @@ public class TrafficSystem {
 
     public void readParameters() {
 	// Reads the parameters for the simulation
-	// The method can read from the terminal, dialogue windows 
+	// The method can read from the terminal(check), dialogue windows 
         // or from a parameterfile. A parameterfile is preferrable 
         // when testing many different parameters since one does 
         // not have to enter new values for each simulation.
@@ -57,10 +57,13 @@ public class TrafficSystem {
     	// The period should be the same for both lights
     	
     	// Variable for arrival probabiity
-
+    	
     	
     	// variable for turn probability
 
+    	
+    	
+    	
     }
 
     public void step() {
@@ -95,11 +98,15 @@ public class TrafficSystem {
     	r2.step();
     	r1.step();
     	
+    	// r0.theLane[0].getCar().getDestination() == r1.theLane[0]
+    	
     	if(r0.theLane[0].getCar() != null){
-    		if(r0.theLane[0].getCar().getDestination() == r1.theLane[0] && r1.lastFree()){
-    	r1.putLast(r0.getFirst());
-    	}
-    	else r2.putLast(r0.getFirst());
+    		if(r0.theLane[0].getCar().getTurn()){
+    			r1.putLast(r0.getFirst());
+    			}
+    		else {
+    			r2.putLast(r0.getFirst());
+    			}
         	}
     	r0.step();
     	
@@ -109,33 +116,51 @@ public class TrafficSystem {
     
 
     	// Create a car with regards to arrival probability
-    	/*
+    	
     	Random carMaybe = new Random();
     	int randomInt = carMaybe.nextInt(10);
-    	if(randomInt < arrivalProb){
-    		Car car;
-    		if(carMaybe.nextInt(10) < turnProb){
-    	    car = new Car(currentTime, r0.theLane[r0.getLength()-1], r2.theLane[0]);
-    		}
-    		else car = new Car(currentTime, r0.theLane[r0.getLength()-1], r1.theLane[0]);
-    	r0.putLast(car);
-    	sumCars++;
-    	}
-    	*/
-    	Car car = new Car(currentTime,r0.theLane[r0.getLength()-1],r1.theLane[0]);
-    	r0.putLast(car);
-    	currentTime++;
+    	
+
+    	
+	    	if(randomInt < arrivalProb){
+	    		Car car;
+	    		//check if the car is going to the turnoff lane
+	        	Random carTurn = new Random();
+	        	int randomTurn = carTurn.nextInt(10);
+	        	
+	    		 		if(randomTurn < turnProb){
+	    	    car = new Car(currentTime, r0.theLane[r0.getLength()-1], true);
+	    		}
+	    		 		else{ 
+	    		 			car = new Car(currentTime, r0.theLane[r0.getLength()-1], false);
+	    		 		}
+	    	r0.putLast(car);
+	    	sumCars++;
+	    	}
+    	
+    	
+    	this.time++;
+
     }
 
     public void printStatistics() {
 	// Print the gathered statistics
-    	//int meanTime = sumTime/sumCars;
-    //	System.out.println("maxTime = " + this.maxTime +" " +
-    	//			"meanTime = " + meanTime + " "
-    		//		);
+    	int meanTime = sumTime/sumCars;
+    	System.out.println("maxTime = " + this.maxTime +" " +
+    			"meanTime = " + meanTime + " "
+    				);
     }
 
     public void print() {
+    	System.out.println(
+    			"For parameters: Arrival probability = " + this.arrivalProb +
+    			" Turn probability = " + this.turnProb +
+    			" Lane length = " + (this.r0.theLane.length + this.r1.theLane.length) +
+    			" Turn lane length = " + this.r2.theLane.length +
+    			" Simulation timelength = " + this.currentTime +
+    			" Traffic light specs =" + this.s1.toString() +
+    			" Turn light specs =" + this.s2.toString() 
+    			);
     	System.out.println("\n");
     	System.out.println("|" + this.r1.toString()  + this.r0.toString() );
     	System.out.println("|" + this.r2.toString());

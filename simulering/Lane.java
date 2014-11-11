@@ -45,11 +45,12 @@ public class Lane{
     }
 
 	    public void step() {
-	    	for(int i = 1; i < theLane.length-1;i++ ){
+	    	for(int i = 1; i <= theLane.length-1;i++ ){
 	    		if(this.theLane[i].moveForward()){
 	    			if(this.theLane[i].getCar() != null){
 	    				Car a = this.theLane[i].getCar();
 	    				a.step();
+	    				this.theLane[i].setCar(null);
 	    		//this.theLane[i].getCar().step;
 	    		
 	    				this.theLane[i-1].setCar(a);
@@ -80,10 +81,10 @@ public class Lane{
 
 
     public boolean lastFree() {
-    	if(this.theLane[this.theLane.length-1].getCar() == null){
+    	//if(this.theLane[this.theLane.length-1].getCar() == null){
     		return true;
-    				}
-    	return false;
+    		//		}
+    	//return false;
 	// Return true if the last place is empty, else false.
     }
 
@@ -99,11 +100,24 @@ public class Lane{
     }
 
     public String toString() {
+    	
+    	
     	String temp ="";
-    	for (int i =0; i < this.getLength() - 1; i++ ){
-            temp +=  " " + this.theLane[i].toString() + " |" ;
+    	for (CarPosition a : theLane){
+            temp +=  " " + a.toString() + " |" ;
     	}
     	return temp ;
+    	
+    	/*
+    	
+    	for(CarPosition a : theLane){
+    		String b = "";
+    		b += a.toString();
+    		
+    	}
+    	return b;
+    	*/
+    	
     	/*
           String  temp = "";
           for(int i = 0;i < this.theLane.length;i++){

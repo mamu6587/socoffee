@@ -45,7 +45,7 @@ public class CarPosition{
     }
 	
     public Car getCar(){
-        return currentCar;
+        return this.currentCar;
     }
 	
     public void setCar(Car car){
@@ -59,19 +59,37 @@ public class CarPosition{
         this.forward = forward;
     }
 	
-	
+ /*   public boolean equals (CarPosition B){
+    	if (this )
+    }
+	*/
     public String toString(){
+
+    	/*
+    	if(this.currentCar != null){
+    		return "CarPosition(currentCar = "+ this.currentCar + 
+              "owner = " + this.owner + 
+              "forward =" + this.forward + 
+              "turn = "+	this.turn + "carinfo =" + this.currentCar.toString();
+
+    		else return "CarPosition(currentCar = "+ this.currentCar + 
+          "owner = " + this.owner + 
+          "forward =" + this.forward + 
+          "turn = "+	this.turn;";
+    	}
+*/
+    	
+
         if (this.currentCar != null) {
-            return "X";
+            return this.currentCar.toString();
         }
         else {
             return " ";
+            
+
         }
-        /*
-          return "CarPosition(currentCar = "+ this.currentCar + 
-          "owner = " + this.owner + 
-          "forward =" + this.forward + 
-          "turn = "+	this.turn;
-        */
+
+
+
     }
 }

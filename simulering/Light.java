@@ -30,13 +30,13 @@ public class Light {
     }
 
     public String  toString()  {
-    	return "sak";
+
     	
-    	/*
-    	return "Light(period = " +this.period + 
-    				"time = " +this.time + 
-    				"green =  "+ this.green +")";
-    	*/
+    	
+    	return "(green timeunits/red timeunits = " +this.green + "/"
+    				+ this.period + 
+    				")";
+    	
     	//...
     	}
 	

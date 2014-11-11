@@ -1,6 +1,21 @@
 public class Simulation {
 
     public static void main(String [] args) {
+    	
+    	
+    	
+    	
+    	
+    	//error if input invalid
+    	if(args.length != 7){
+		System.out.println ("Accepted input: Arrival probability,\n" +
+				 "Turn probability,\n  "
+		+ "Lane length,\n "
+		+ "Turn lane length,\n "
+		+ "Simulation timelength,\n"
+		+ "Traffic light specs,\n "
+		+ "Turn light specs\n" );
+    	}
 	// Creates a TrafficSystem
 	// Performs the stepping, calls printing methods
    
@@ -13,7 +28,7 @@ public class Simulation {
     	// add args[6] = s2 greentime
     	// and args[7] = how many steps the simulation should have
 
-
+    	else{
         TrafficSystem	trafficSys = new TrafficSystem(Integer.parseInt(args[0]), 
     		Integer.parseInt(args[1]), Integer.parseInt(args[2]), 
     		Integer.parseInt(args[3]), Integer.parseInt(args[4]), 
@@ -30,6 +45,6 @@ public class Simulation {
 
     trafficSys.printStatistics();
 	//...
-
+    	}
     }
 }
