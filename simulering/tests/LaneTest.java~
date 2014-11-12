@@ -1,0 +1,10 @@
+// att testa: konstruktor, test, putlast, getfirst, toString,
+
+@test
+public void constructorBuildsCorrectly (){
+    
+    Lane testLane = new Lane(6);
+    for(int i = 5; i > 0; i--){
+	assertTrue("Carpositions not forwardlinked", testLane.theLane[i].getForward() == testLane.theLane[i-1]);
+}
+}

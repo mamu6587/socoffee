@@ -7,27 +7,21 @@ public class Car {
 
     private CarPosition currentPosition;
     
-    public void step()
-    {
+    public void step(){
     	this.currentPosition = this.currentPosition.getForward();
-    	
-    	/*if (this.currentPosition.owner == this.destination.owner){
-    		if (currentPosition.moveForward()) {
-    			this.currentPosition = currentPosition.forward;
-    		}
-    		else if ( isGreen() ) {
-    			
-    		}
-    	}*/
     }
     
+    //good idea or no?
+    public Car(){
+	System.out.println("Invalid arguments for Car constructor")
+}
+
     public Car(int bornTime, CarPosition currentPosition,  boolean turn){
     	this.bornTime = bornTime;
     	this.Turn = turn;
     	this.currentPosition = currentPosition;
-    	
-  
     }
+
 //konstruktor och get- och set-metoder
     
     public int getTime(){
