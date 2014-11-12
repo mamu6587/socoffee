@@ -145,22 +145,25 @@ public class TrafficSystem {
 
     public void printStatistics() {
 	// Print the gathered statistics
+    				
+System.out.println(
+                       "\n\n For parameters:" +
+                        "\n Arrival probability = " + this.arrivalProb + "/10 " +
+    			"\n Turn probability = " + this.turnProb + "/10" +
+    			"\n Lane length = " + (this.r0.theLane.length + this.r1.theLane.length) +
+    			"\n Turn lane length = " + this.r2.theLane.length +
+    			"\n Simulation timelength = " + this.time +
+    			"\n Traffic light specs =" + this.s1.toString() +
+    			"\n Turn light specs =" + this.s2.toString() 
+    			);
     	int meanTime = sumTime/sumCars;
-    	System.out.println("maxTime = " + this.maxTime +" " +
-    			"meanTime = " + meanTime + " "
-    				);
-    }
+        System.out.println("----------------------------------");
+    	System.out.println(" MaxTime = " + this.maxTime +", "+
+                           "MeanTime = " + meanTime + " ");
+        System.out.println("----------------------------------");    	    
+}
 
     public void print() {
-    	System.out.println(
-    			"For parameters: Arrival probability = " + this.arrivalProb +
-    			" Turn probability = " + this.turnProb +
-    			" Lane length = " + (this.r0.theLane.length + this.r1.theLane.length) +
-    			" Turn lane length = " + this.r2.theLane.length +
-    			" Simulation timelength = " + this.currentTime +
-    			" Traffic light specs =" + this.s1.toString() +
-    			" Turn light specs =" + this.s2.toString() 
-    			);
     	System.out.println("\n");
     	System.out.println("|" + this.r1.toString()  + this.r0.toString() );
     	System.out.println("|" + this.r2.toString());
