@@ -7,7 +7,7 @@ public class Simulation {
     	
     	
     	//error if input invalid
-    	if(args.length != 7){
+    	if(args.length != 8){
 		System.out.println ("Accepted input: Arrival probability,\n" +
 				 "Turn probability,\n  "
 		+ "Lane length,\n "
@@ -23,22 +23,40 @@ public class Simulation {
     	
         // int arrivalProb, int turnProb, 
         // int lengthTurn, int lengthStart, 
-        // int period, int green 
-
-    	// add args[6] = s2 greentime
+        // int period, int green1, int green2 
     	// and args[7] = how many steps the simulation should have
+    	
+    	//add: validera indata
+    	//aP & tP > 0, <= 10
+    	// lT & lS > 0
+    	//period >= 0
+    	//green1 & 2 >= 0, <= period 
+    	
+    	//dokumentation med JavaDoc
+    	//makefil med tester
+    	//readme.md med:
+    	//hur man bygger
+    	//hur man kör
+    	//en lista över samtliga mål som redovisats med programmet
+    	//listar eventuella utökningar
+    	//övrig information av nytta
+    	
+    	//enhetstester
+    	
+    	
+
 
     	else{
         TrafficSystem	trafficSys = new TrafficSystem(Integer.parseInt(args[0]), 
     		Integer.parseInt(args[1]), Integer.parseInt(args[2]), 
     		Integer.parseInt(args[3]), Integer.parseInt(args[4]), 
-    		Integer.parseInt(args[5])
+    		Integer.parseInt(args[5]), Integer.parseInt(args[6])
     		);
     
     
     
     // timeloop
-    for(int i = 0; i < Integer.parseInt(args[6]); i++){
+    for(int i = 0; i < Integer.parseInt(args[7]); i++){
     	trafficSys.step();
     	trafficSys.print();
     }

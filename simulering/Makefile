@@ -1,7 +1,9 @@
 
 
-all: Simulation.java 
-	javac
+all:
+	javac *.java
+
+test: 
 
 
 clean: 

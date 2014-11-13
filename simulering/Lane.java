@@ -1,8 +1,6 @@
 public class Lane{
 
-    public static class OverflowException extends RuntimeException {
-        // Exception thrown when a new car could not be placed on theLane 
-    }
+
 
     protected CarPosition[] theLane;
 
@@ -54,8 +52,8 @@ public class Lane{
 		    //this.theLane[i].getCar().step;
 		    
 		    this.theLane[i-1].setCar(a);
-		}	
-	    }			
+			}	
+	    }
 	}	
 	// Step every vehicle one step forward (except for index 0), if possible. 
 	// . The vehicle at index 0 is removed with another method 
@@ -81,23 +79,26 @@ public class Lane{
     
     
     public boolean lastFree() {
-    	//if(this.theLane[this.theLane.length-1].getCar() == null){
+    	if(this.theLane[this.theLane.length-1].getCar() == null){
 	return true;
-	//		}
-    	//return false;
+			}
+    	return false;
 	// Return true if the last place is empty, else false.
     }
     
     public void putLast(Car c) throws OverflowException {
-    	if (this.lastFree()){
-            this.theLane[this.theLane.length - 1].setCar(c); 
+    	
+    	if(this.lastFree()){
+        		 this.theLane[this.theLane.length - 1].setCar(c); 
             //set the CarPositions currentCar to car c
-            c.setPosition(this.theLane[this.theLane.length - 1]); 
+        		 c.setPosition(this.theLane[this.theLane.length - 1]); 
             //update the Cars currentPosition
         }
-	
 	// Place a car on the last CarPosition (if possible)
+    	else throw new OverflowException("Too many cars");
     }
+    
+    
     
     public String toString() {
 	

@@ -33,7 +33,7 @@ public class Light {
 
     	
     	
-    	return "(green timeunits/red timeunits = " +this.green + "/"
+    	return " (greenTime/period = " +this.green + "/"
     				+ this.period + 
     				")";
     	

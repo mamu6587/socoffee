@@ -2,6 +2,7 @@
 import java.util.Random;
 import java.io.*;
 
+
 public class TrafficSystem {
     // Defines the lanes and traffic lights included in the traffic systems that are studied
     // 
@@ -24,7 +25,7 @@ public class TrafficSystem {
     
     private int maxTime;
     private int sumTime;
-    private int forwardBlocked; //Needs to be implemented
+    private int forwardBlocked; //how many times way forward blocked by other lane
     private int sumCars;
     
     //Time during the simulation    
@@ -32,12 +33,12 @@ public class TrafficSystem {
 
     public TrafficSystem(int arrivalProb, int turnProb, 
                          int lengthTurn, int lengthStart, 
-                         int period, int green){
+                         int period, int green1, int green2){
     	this.r0 = new Lane(lengthStart);
     	this.r1 = new Lane(lengthTurn);
     	this.r2 = new Lane(lengthTurn);
-    	this.s1 = new Light(period, green);
-    	this.s2 = new Light(period, green);
+    	this.s1 = new Light(period, green1);
+    	this.s2 = new Light(period, green2);
     	this.time = 0;
     	this.maxTime = 0;
     	this.sumCars = 0;
@@ -98,14 +99,44 @@ public class TrafficSystem {
     	r2.step();
     	r1.step();
     	
+    	if (!r2.lastFree() && r0.firstCar()!= null){
+    		if(r0.firstCar().getTurn()){
+    		for (CarPosition a : r0.theLane ){
+    			if (a.getCar() != null){
+    				if(a.getCar().getTurn()){
+    					forwardBlocked++;
+    					break;
+    					}
+    				}
+    				else break;
+    			}
+    		}
+    	}
+    	
+    	
+    	if (!r1.lastFree() && r0.firstCar()!= null){
+    		if(!r0.firstCar().getTurn()  ){
+    		for (CarPosition a : r0.theLane ){
+    			if (a.getCar() != null){
+    				if(!a.getCar().getTurn()){
+    					forwardBlocked++;
+    					break;
+    					}
+    			
+    				}
+    				else break;
+    			}
+    		}
+    	}
+    	
     	// r0.theLane[0].getCar().getDestination() == r1.theLane[0]
     	
     	if(r0.theLane[0].getCar() != null){
     		if(r0.theLane[0].getCar().getTurn()){
-    			r1.putLast(r0.getFirst());
+    			r2.putLast(r0.getFirst());
     			}
     		else {
-    			r2.putLast(r0.getFirst());
+    			r1.putLast(r0.getFirst());
     			}
         	}
     	r0.step();
@@ -134,7 +165,14 @@ public class TrafficSystem {
 	    		 		else{ 
 	    		 			car = new Car(currentTime, r0.theLane[r0.getLength()-1], false);
 	    		 		}
-	    	r0.putLast(car);
+	    		 		//r0.putLast(car);
+	    		     	 //try{
+	    		 	 	    	r0.putLast(car);
+	    		 	 	    	//}
+	    		 	 	    		//catch(OverflowException e) {
+	    		 	 	    			//System.out.println(e.getMessage());
+	    		 	 	    		//} 
+	    		     
 	    	sumCars++;
 	    	}
     	
@@ -159,10 +197,15 @@ System.out.println(
     	int meanTime = sumTime/sumCars;
         System.out.println("----------------------------------");
     	System.out.println(" MaxTime = " + this.maxTime +", "+
-                           "MeanTime = " + meanTime + " ");
+                           				" MeanTime = " + meanTime + ", " +
+                           				" ForwardBlocked = " + this.forwardBlocked);
         System.out.println("----------------------------------");    	    
 }
 
+    /*public void incrementForwardBlocked(){
+    	this.forwardBlocked++;
+    }*/
+    
     public void print() {
     	System.out.println("\n");
     	System.out.println("|" + this.r1.toString()  + this.r0.toString() );

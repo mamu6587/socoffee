@@ -13,7 +13,7 @@ public class Car {
     
     //good idea or no?
     public Car(){
-	System.out.println("Invalid arguments for Car constructor")
+	System.out.println("Invalid arguments for Car constructor");
 }
 
     public Car(int bornTime, CarPosition currentPosition,  boolean turn){
@@ -43,6 +43,8 @@ public class Car {
     public void setTurn(boolean turn){
     	this.Turn = turn;
     	}
+    
+  
     //...
     
 
