@@ -8,13 +8,15 @@ public class Simulation {
     	
     	//error if input invalid
     	if(args.length != 8){
-		System.out.println ("Accepted input: Arrival probability,\n" +
+		System.out.println ("Accepted input: \n"
+				+ "Arrival probability,\n" +
 				 "Turn probability,\n  "
 		+ "Lane length,\n "
 		+ "Turn lane length,\n "
-		+ "Simulation timelength,\n"
-		+ "Traffic light specs,\n "
-		+ "Turn light specs\n" );
+		+ "Traffic lights' period (shared)"
+		+ "Traffic light green time,\n "
+		+ "Turn light green time\n" 
+		+ "Simulation timelength,\n");
     	}
 	// Creates a TrafficSystem
 	// Performs the stepping, calls printing methods
@@ -26,11 +28,7 @@ public class Simulation {
         // int period, int green1, int green2 
     	// and args[7] = how many steps the simulation should have
     	
-    	//add: validera indata
-    	//aP & tP > 0, <= 10
-    	// lT & lS > 0
-    	//period >= 0
-    	//green1 & 2 >= 0, <= period 
+
     	
     	//dokumentation med JavaDoc
     	//makefil med tester
@@ -46,23 +44,60 @@ public class Simulation {
     	
 
 
-    	else{
-        TrafficSystem	trafficSys = new TrafficSystem(Integer.parseInt(args[0]), 
-    		Integer.parseInt(args[1]), Integer.parseInt(args[2]), 
-    		Integer.parseInt(args[3]), Integer.parseInt(args[4]), 
-    		Integer.parseInt(args[5]), Integer.parseInt(args[6])
+    	final int[] convertedArgs = {Integer.parseInt(args[0]), Integer.parseInt(args[1]), 
+    			Integer.parseInt(args[2]), Integer.parseInt(args[3]), 
+    			Integer.parseInt(args[4]), Integer.parseInt(args[5]), 
+    			Integer.parseInt(args[6]), Integer.parseInt(args[7])
+    			};
+    	
+
+    	//validerar indata
+    	//aP & tP > 0, <= 10
+    	// lT & lS > 0
+    	//period >= 0
+    	//green1 & 2 >= 0, <= period 
+    	
+    	
+    	 if(convertedArgs[0] < 0 || convertedArgs[1] < 0 //everything should be above or equal to zero
+    			 ||  convertedArgs[2] <= 0 || convertedArgs[3] <= 0
+    			|| convertedArgs[4] < 0 || convertedArgs[5] <0
+    			|| convertedArgs[6] < 0 || convertedArgs[7] < 0
+    			|| convertedArgs[0] > 10 || convertedArgs[1] > 10 //ArrivalProb and TurnProb cannot be larger than 10
+    			|| convertedArgs[5] > convertedArgs[4] || convertedArgs[6] > convertedArgs[4]
+    				
+    			 ){
+    	
+    		
+    		
+    		System.out.println("Accepted input: integers a s d f g h j"
+    				+ "Arrival probability (a out of 10)\n"
+    				+ "Turn probability (s out of 10)\n "
+   		+ "Lane length (d larger than 0)\n "
+   		+ "Turn lane length (f larger than 0)\n "
+   		+ "Traffic lights' period (g, shared) \n "
+   		+ "Forward light green time (h out of period)"
+   		+ "Turn light green time (j out of period)\n"
+   				+ "Simulation timelength (i)\n");
+    	
+    	 }
+    	
+    	 else{
+        TrafficSystem	trafficSys = new TrafficSystem(convertedArgs[0], 
+        		convertedArgs[1], convertedArgs[2], 
+        		convertedArgs[3], convertedArgs[4], 
+        		convertedArgs[5], convertedArgs[6]
     		);
     
     
     
     // timeloop
-    for(int i = 0; i < Integer.parseInt(args[7]); i++){
+    for(int i = 0; i < convertedArgs[7]; i++){
     	trafficSys.step();
     	trafficSys.print();
     }
 
     trafficSys.printStatistics();
 	//...
-    	}
+    	 }
     }
 }

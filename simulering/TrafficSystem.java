@@ -208,8 +208,8 @@ System.out.println(
     
     public void print() {
     	System.out.println("\n");
-    	System.out.println("|" + this.r1.toString()  + this.r0.toString() );
-    	System.out.println("|" + this.r2.toString());
+    	System.out.println(s1.toString() + "|" + this.r1.toString()  + this.r0.toString() );
+    	System.out.println(s2.toString() + "|" + this.r2.toString());
     	
         // Print a graphical representation by using the Classes toString-methods
     }

@@ -30,13 +30,11 @@ public class Light {
     }
 
     public String  toString()  {
+    	if(this.isGreen()){
+    		return "{G";
+    	}
+    	return  "{R";
 
-    	
-    	
-    	return " (greenTime/period = " +this.green + "/"
-    				+ this.period + 
-    				")";
-    	
     	//...
     	}
 	
