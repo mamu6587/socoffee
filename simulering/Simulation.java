@@ -33,11 +33,11 @@ public class Simulation {
     	//dokumentation med JavaDoc
     	//makefil med tester
     	//readme.md med:
-    	//hur man bygger
-    	//hur man kör
-    	//en lista över samtliga mål som redovisats med programmet
-    	//listar eventuella utökningar
-    	//övrig information av nytta
+    	//how to build
+    	//how to run
+    	//a list with all the goals that has been met with this program
+    	//lists all additions
+    	//other useful info
     	
     	//enhetstester
     	

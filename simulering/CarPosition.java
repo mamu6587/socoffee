@@ -9,17 +9,21 @@ public class CarPosition{
 	
     private CarPosition forward;
     private CarPosition turn;
-	
+
+    /**
+     * Creates a CarPosition
+     *
+     * @param a_owner the Lane that owns this CarPpsition
+     */	
     public CarPosition(Lane a_Owner)
     {
         owner = a_Owner;
     }
-	
-    public boolean isEnd(CarPosition target)
-    {
-        return owner.matchEnd(target);
-    }
-	
+    /**
+     * Checks if the CarPosition forward is null or not 
+     * @return  true if there is no Car in forward, else false 
+     */
+    	
     public boolean moveForward()
     { if (this.forward.getCar() == null){
             return true;
@@ -27,7 +31,15 @@ public class CarPosition{
         return false;
 	       
     }
-		
+
+    /**
+     * Gets the bornTime from the car
+     *
+     * @return the bornTime of the car
+     */
+    
+
+/*		
     public boolean turn()
     { if (this.turn.currentCar == null){
             return true;
@@ -36,6 +48,7 @@ public class CarPosition{
         // Flytta bilen till turn
     }
 
+
     public void setTurn(CarPosition turn) {
         this.turn = turn;
     }
@@ -43,41 +56,63 @@ public class CarPosition{
     public CarPosition getTurn() {
         return turn;
     }
-	
+*/	
+     /**
+     * Gets the currentCar from this CarPosition 
+     *
+     * @return the currentCar
+     */
     public Car getCar(){
         return this.currentCar;
     }
-	
+     /**
+     * Sets a Car in this CarPosition 
+     *
+     *
+     * @param car the Car that is supposed to be set in the CarPosition
+     */
     public void setCar(Car car){
         this.currentCar = car;
     }
-	
+     /**
+     * Gets the forward CarPosition
+     *
+     * @return the attribute CarPosition forward 
+     */
     public CarPosition getForward(){
         return this.forward;
     }
+     /**
+     * Sets the forward CarPosition
+     *
+     * @param forward forward gets set as the forward CarPosition to this car
+     */
+
     public void setForward(CarPosition forward){
         this.forward = forward;
     }
-	
- /*   public boolean equals (CarPosition B){
-    	if (this )
-    }
-	*/
+     
+
+     /**
+     * Prints a representation of a CarPosition 
+     *
+     * @return something from another toString function
+     */
     public String toString(){
 
     	/*
-    	if(this.currentCar != null){
-    		return "CarPosition(currentCar = "+ this.currentCar + 
-              "owner = " + this.owner + 
-              "forward =" + this.forward + 
-              "turn = "+	this.turn + "carinfo =" + this.currentCar.toString();
+          if(this.currentCar != null){
+          return "CarPosition(currentCar = "+ this.currentCar + 
+          "owner = " + this.owner + 
+          "forward =" + this.forward + 
+          "turn = "+	this.turn + "carinfo =" + this.currentCar.toString();
 
-    		else return "CarPosition(currentCar = "+ this.currentCar + 
+          else return "CarPosition(currentCar = "+ this.currentCar + 
           "owner = " + this.owner + 
           "forward =" + this.forward + 
           "turn = "+	this.turn;";
-    	}
-*/
+          }
+        */
     	
 
         if (this.currentCar != null) {
@@ -88,8 +123,5 @@ public class CarPosition{
             
 
         }
-
-
-
     }
 }
