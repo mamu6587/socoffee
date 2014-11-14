@@ -1,1 +1,15 @@
-clean:
+compiler = javac
+
+all:  
+	$(compiler) *.java
+
+Car: 
+	$(compiler) Car.java
+
+CarPosition: 
+	$(compiler) CarPosition.java
+
+test: 
+
+clean: 
+	$(RM) *.class 

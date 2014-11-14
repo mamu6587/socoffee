@@ -9,17 +9,26 @@ public class CarPosition{
 	
     private CarPosition forward;
     private CarPosition turn;
-	
+
+    /**
+     * Creates a CarPosition
+     *
+     * @param a_owner the Lane that owns this CarPpsition
+     */	
     public CarPosition(Lane a_Owner)
     {
         owner = a_Owner;
     }
-	
-    public boolean isEnd(CarPosition target)
+    /**
+     * 
+     *
+     * @return he bornTime of the car
+     */
+    /* public boolean isEnd(CarPosition target)
     {
         return owner.matchEnd(target);
     }
-	
+    */	
     public boolean moveForward()
     { if (this.forward.getCar() == null){
             return true;
