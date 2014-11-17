@@ -96,7 +96,7 @@ public class CarPosition{
      /**
      * Prints a representation of a CarPosition 
      *
-     * @return something from another toString function
+     * @return " " or "X"
      */
     public String toString(){
 

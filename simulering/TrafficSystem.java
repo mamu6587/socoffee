@@ -31,6 +31,18 @@ public class TrafficSystem {
     //Time during the simulation    
     private int time;
 
+     /**
+     * Creates a TrafficSystem.
+     *
+     * @param arrivalProb the probability out of 10 that a car arrives
+     * @param turnProb the probability out of 10 that a car will turn   
+     * @param lengthTurn the length of the turning lane
+     * @param lengthStart the length of the 
+     * @param period the period of the lights
+     * @param green1 green time of the light for cars going forward
+     * @param green2 green time of th turning light    
+     */
+
     public TrafficSystem(int arrivalProb, int turnProb, 
                          int lengthTurn, int lengthStart, 
                          int period, int green1, int green2){
@@ -47,7 +59,7 @@ public class TrafficSystem {
     	this.turnProb = turnProb;
     	}
 
-    public void readParameters() {
+    // public void readParameters() {
 	// Reads the parameters for the simulation
 	// The method can read from the terminal(check), dialogue windows 
         // or from a parameterfile. A parameterfile is preferrable 
@@ -66,6 +78,12 @@ public class TrafficSystem {
     	
     	
     }
+
+     /**
+     * Steps the whole TrafficSystem one time unit 
+     *
+     * 
+     */
 
     public void step() {
         //Step the system one time step by using the components step methods
@@ -175,12 +193,16 @@ public class TrafficSystem {
 	    		     
 	    	sumCars++;
 	    	}
-    	
+ 
     	
     	this.time++;
 
     }
-
+     /**
+     * Prints all the gathered statistics
+     *
+     * 
+     */
     public void printStatistics() {
 	// Print the gathered statistics
     				
@@ -205,7 +227,11 @@ System.out.println(
     /*public void incrementForwardBlocked(){
     	this.forwardBlocked++;
     }*/
-    
+     /**
+     * 
+     * Prints an ASCII-representation of the TrafficSystem at a specific point in time.
+     * 
+     */
     public void print() {
     	System.out.println("\n");
     	System.out.println(s1.toString() + "|" + this.r1.toString()  + this.r0.toString() );
