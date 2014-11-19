@@ -1,4 +1,6 @@
-// att testa: konstruktor, test, putlast, getfirst, toString,
+// att testa: putlast, getfirst, toString,
+public class LaneTest{
+
 
 @test
 public void constructorBuildsCorrectly (){
@@ -10,7 +12,7 @@ public void constructorBuildsCorrectly (){
 }
 
 @test
-public void laneTest(){
+public void laneTest(){ //check that car/carposition references are updated correctly,
     Lane testLane = new Lane(4);
     Car car = new Car(0,null,null);
     Car car2 = new Car(0,null,null);
@@ -24,6 +26,12 @@ public void laneTest(){
     assertTrue("Car 2 isn't in spot 4", testLane.theLane[3].getCar() == car2);
     testLane.step();
 
+    assertNull("Last place isn't empty" testLane.theLane[3].getCar());
+    assertTrue("Cars currentposition isn't updated", car2.getPosition() == testLane.theLane[3]);
+    assertTrue("Cars currentposition isn't updated", car1.getPosition() == testLane.theLane[2]);
+    assertTrue("Carposition 2's currentcar isn't updated", testLane.theLane[2].getCar() == car);	
+    	
+    		
     assertTrue("Car 1 isn't in spot 2", testLane.theLane[1].getCar() == car);
     assertTrue("Car 2 isn't in spot 3", testLane.theLane[2].getCar() == car2);	
     testLane.step();
@@ -50,3 +58,4 @@ public void tooManyCarsShouldOverflow(){
     testLane.putLast(car2);
 }
 
+}

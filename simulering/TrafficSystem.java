@@ -62,17 +62,17 @@ public class TrafficSystem {
     // public void readParameters() {
 	// Reads the parameters for the simulation
 	// The method can read from the terminal(check), dialogue windows 
-        // or from a parameterfile. A parameterfile is preferrable 
-        // when testing many different parameters since one does 
-        // not have to enter new values for each simulation.
-        // The standard class Properties is useful for this purpose.
+    // or from a parameterfile. A parameterfile is preferrable 
+    // when testing many different parameters since one does 
+    // not have to enter new values for each simulation.
+    // The standard class Properties is useful for this purpose.
     	
-    	// The period should be the same for both lights
+    // The period should be the same for both lights
     	
-    	// Variable for arrival probabiity
+    // Variable for arrival probability
     	
     	
-    	// variable for turn probability
+    // variable for turn probability
 
     	
     	
@@ -86,9 +86,9 @@ public class TrafficSystem {
      */
 
     public void step() {
-        //Step the system one time step by using the components step methods
+    // Step the system one time step by using the components step methods
 	// Create cars, put them in the last place and remove them from 
-        // the different Lane-components
+    // the different Lane-components
 
     	
 	    	if(s1.isGreen()){

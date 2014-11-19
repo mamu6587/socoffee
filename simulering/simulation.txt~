@@ -58,3 +58,56 @@
   blir Lane-klassen enklare.  
     
 */
+
+//Inget att testa typ; allt är så väldigt basic. ev. defensivt dvs kolla konstruktorn; ev lägg in avbrott eller något sådant?
+Car(
+
+)
+
+//också bara basic get/set och return true/false metoder
+CarPosition(
+
+)
+
+Light(
+Green
+Period
+Time
+
+
+Step()
+toString()
+isGreen()
+
+testa:
+Light()
+isGreen(false)
+step
+isGreen(true)
+step
+isGreen(false)
+
+toString
+)
+
+
+
+Lane(
+getFirst()
+setParallell()
+putLast()
+toString()
+)
+
+TrafficSystem(
+step()
+print()
+printStatistics()
+readParameters()
+
+)
+
+Simulation(
+main()
+
+)

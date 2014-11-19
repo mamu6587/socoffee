@@ -11,10 +11,6 @@ public class Car {
     	this.currentPosition = this.currentPosition.getForward();
     }
     
-    //good idea or no?
-    public Car(){
-	System.out.println("Invalid arguments for Car constructor");
-}
     /**
      * Creates an instance of a Car object 
      *
@@ -82,18 +78,7 @@ public class Car {
      */
    
     public String toString() {
-    	
-    	/*
-    	return ("borntime = " + this.bornTime +
-    					"currentposition = " this.currentPosition +
-    					"destination = " this.destination);
-	*/
-
-    	return "x";
+        	return "x";
     }
-    /*	return "Car(bornTime = " + this.bornTime +
-    "currentPosition = " + this.currentPosition + 
-    	"destination = 	 " + this.destination + ")";
-    	}
-	*/
+
 }

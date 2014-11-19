@@ -1,0 +1,83 @@
+Varför tar eval emot map?
+
+Hur ska priority implementeras?
+
+Vars och quit: static? varför skall de ha en eval-metod?
+
+Inläsning
+
+Utmatning
+
+Aritmetik
+- parenteser
+- variabelhantering
+-klasser för varje operation & funktion
+
+Felhantering: Syntaxfel kontra evalueringsfel
+
+Själva programmet; hantera quit, clear och sådant
+
+Enhetstester :(
+
+trädstruktur i datalagringen (hashmaps i hashmaps?)
+
+singleton-mönster
+checkstyle
+hashmap
+
+var lägga in variabellistan
+
+
+
+Sinusklassens evalueringsmetod ser typiskt ut så här:
+public Sexpr eval(HashMap<String,Sexpr> variables){
+return Symbolic.sin(argument.eval(variables));
+}
+och metoden sin i klassen Symbolic har följande utseende:
+public static Sexpr sin(Sexpr arg){
+if (arg.isConstant())
+return new Constant(Math.sin(arg.getValue()));
+else
+return new Sin(arg);
+}
+
+se s. 8
+
+Uppgiften skall lösas stegvis. Se till att varje steg fungerar innan du går vidare! Lämpliga steg:
+
+1. Definiera klasshierarkin. Ta endast med konstruktorer och toString()-metoder och låt dessa sätta
+ut parenteser ”ovillkorligt”.
+
+2.Modifiera och bygg ut den parser som tidigare delats ut så att den bygger uttryck (utan evaluering)
+
+3.Testa att enskilda uttryck hanteras rätt genom att skriva enhetstester för varje funktion i parsern.
+
+4.Du kan testa kombinerade uttryck genom att skriva ett huvudprogram som läser in uttryck och
+sedan skriver ut det inlästa uttrycket. Ännu bättre är dock om du skriver automatiserade tester
+även för detta.
+
+5.Implementera priority()- och modifiera toString()- metoderna så att de bara sätter ut parenteser vid behov
+
+6.Implementera klassen Symbolic. Gör bara ”enkla” implementationer av typ ”om båda operanderna
+i additionsmetoden är konstanter så skapa en ny konstant som summan av de två, annars skapa
+en ny additionsnod med samma operander”. Implementera eval-metoderna för de nodklasser som
+skrivits samt de andra metoder som krävs för att evaluering skall kunna utföras
+
+7.Förbättra metoderna i klassen Symbolic så att de utför triviala förenklingar
+
+Observera:
+Programmet SKALL fungera i enlighet med specifikationen!
+
+Koden SKALL vara läslig (innebär att inga rader får vara längre än 80 tecken) och följa kodkonventionerna. Använd gärna Checkstyle för att kontrollera att koden följer "The Sun Code Conventions".
+
+Du SKALL använda recursive descent såsom i den tidigare utdelade parsern.
+
+Det SKALL finnas en metod för varje syntaktisk enhet (varje enskilt syntaxdiagram) och metoden skall ha de namn som anges där.
+
+du SKALL använda den givna klassdesignen i detalj dvs alla klasser skall finnas med de angivna namnen och de angivna metoderna.
+
+det är FÖRBJUDET att använda instanceof och typkastningar mellan olika klasser i klasshierarkin.
+
+Upprepa inte identisk eller nästan identisk kod i alla klasser - en klass skall bara definiera det som är speciellt för den. Tänk särskilt på detta i konstrukturer (utnyttja super!) och toString-metoder!
+
+enhetstesterna för uppgiften SKALL passera utan fel. Du måste själv skriva enhetstester för parser-delen av uppgiften! Använd exempel från uppgiftstexten!

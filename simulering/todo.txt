@@ -1,0 +1,29 @@
+Tests: (/ next to confirmed)
+
+Carposition too trivial to test;
+
+Car too trivial to test;
+
+Lane
+Currently tests:
+constructorBuildsCorrectly() - positions linked back to front
+laneTest() - tests putlast, step, getfirst
+tooManyCarsShouldOverflow() - checks that the overflowexception is thrown when too many cars
+
+
+Simulation nothing to test atm; everything done in other functions OR handled with system.out.println
+Main()
+
+TrafficSystem currently tests: Cars can be created and run forward/turn, Cars can forward/turn and overflow correctly
+
+TrafficSystem to test: 
+step()
+print()
+printStatistics()
+readParameters()
+
+Light too trivial to test
+
+Suffix test
+
+Don't explicitly test constructors, getters, setters.

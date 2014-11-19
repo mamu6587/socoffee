@@ -1,10 +1,12 @@
+package symbolic;
 	import java.util.HashMap;
 
 public abstract class Sexpr{
-	String name;
+	/*String name;
 	double value;
 	int priority;
-	boolean constant;
+	boolean constant; 
+	*/
 	
 	public Sexpr(){
 		
@@ -24,9 +26,7 @@ public abstract class Sexpr{
 		return this.constant;
 	}
 	
-	public Sexpr eval(HashMap map){
-		
-	}
+	public abstract Sexpr eval(HashMap map);
 	
 	public String toString(){
 		return Double.toString(this.value);

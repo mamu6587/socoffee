@@ -1,3 +1,5 @@
+package Parser;
+
 import java.io.StreamTokenizer;
 import java.io.IOException;
 
@@ -25,6 +27,23 @@ class Parser{
         return sum;
     }
 
+    
+    /* försök till kladd över expression baserat på uppgift.pdf
+    public Sexpr expression() throws IOException{
+        double sum = term();
+        st.nextToken();
+        while (st.ttype == '+' || st.ttype == '-'){
+            if(st.ttype == '+'){
+                sum = new Addition(sum, term());
+            }else{
+                sum = new Subtraction(sum, term());
+            }
+            st.nextToken();
+        }
+        st.pushBack();
+        return sum;
+    }
+	*/
     private double term() throws IOException{
         double prod = factor();
         while (st.nextToken() == '*'){
