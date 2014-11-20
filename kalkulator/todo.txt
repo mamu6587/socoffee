@@ -25,6 +25,8 @@ singleton-mönster
 checkstyle
 hashmap
 
+parsern - lägg till hantering utöver +-*
+
 var lägga in variabellistan
 
 
