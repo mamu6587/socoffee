@@ -13,6 +13,7 @@ public class TrafficSystemTest{
 		for(int i = 0; i < 20; i++){
 		testSystem.step();
 		}
+		
 	}
 	@Test
 	public void carsShouldTurnAndExit(){
@@ -22,7 +23,7 @@ public class TrafficSystemTest{
 		testSystem2.step();	
 		} 		
 	}
-	
+	/*
 	@Test(expected = OverflowException.class)
 	public void carsShouldTurnAndOverflow(){
 		//to test that cars can run turnlane, be blocked and overflow
@@ -40,4 +41,5 @@ public class TrafficSystemTest{
 		testSystem4.step();
 		}
 	}
+	*/
 }

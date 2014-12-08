@@ -52,6 +52,8 @@ public class LaneTest {
 		    assertNotNull("getFirst didn't return car2 correctly",testLane.getFirst());
 		}
 
+		/*
+		
 		@Test(expected = OverflowException.class)
 		public void tooManyCarsShouldOverflow(){
 		    Lane testLane = new Lane(2);
@@ -60,6 +62,6 @@ public class LaneTest {
 		    testLane.putLast(car);
 		    testLane.putLast(car2);
 		}
-
+*/
 }
 
