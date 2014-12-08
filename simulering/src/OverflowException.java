@@ -1,7 +1,7 @@
 
 
 
-public class OverflowException  {
+public class OverflowException {
 	private String message;
 	
 	
