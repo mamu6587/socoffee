@@ -1,13 +1,30 @@
 
 
-all:
+all: 
 	javac *.java
 
-simulation: Simulation.java
+simulation: 
+	javac Simulation.java
 
-car: Car.java
+trafficsystem: 
+	javac TrafficSystem.java
 
-test: 
+car: 
+	javac Car.java
+
+carposition: 
+	javac CarPosition.java
+
+lane: 
+	javac Lane.java
+
+light: 
+	javac Light.java
+
+overflowexception: 
+	javac OverflowException.java
+
+test: all
 
 
 clean: 
