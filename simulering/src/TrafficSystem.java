@@ -189,12 +189,17 @@ public class TrafficSystem {
 						car = new Car(currentTime, r0.theLane[r0.getLength()-1], false);
 					}
 
-					try{
-						r0.putLast(car);    	
-					} catch(Lane.OverflowException e){
-						System.out.println("Error:" + e.getMessage());
-						overFlows++;
+					if(!r0.lastFree()){
+					overFlows++;
+
 					}
+					else{
+						
+						r0.putLast(car);
+					}
+
+						
+
 
 
 					sumCars++;

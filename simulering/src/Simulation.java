@@ -70,7 +70,7 @@ public class Simulation {
     	
     		
     		
-            System.out.println("Accepted input: integers a s d f g h j"
+            System.out.println("Accepted input: integers a s d f g h j\n"
                                + "Arrival probability (a out of 10)\n"
                                + "Turn probability (s out of 10)\n "
                                + "Lane length (d larger than 0)\n "

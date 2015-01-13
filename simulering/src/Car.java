@@ -9,6 +9,7 @@ public class Car {
     
     public void step(){
     	this.currentPosition = this.currentPosition.getForward();
+    	this.currentPosition.setCar(this);
     }
     
     /**

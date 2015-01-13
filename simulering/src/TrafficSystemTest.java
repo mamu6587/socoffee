@@ -1,9 +1,19 @@
 import static org.junit.Assert.*;
 
-import org.junit.Before;
 import org.junit.Test;
 
 public class TrafficSystemTest{
+	
+	public static class OverflowException extends RuntimeException{
+		//private String message;
+		
+		public OverflowException(String s){
+			super(s);
+			}
+		
+		/*	public String getMessage(){
+				return this.message;*/
+		}
 	
 	@Test
 	public void carsShouldForwardAndExit(){
@@ -23,23 +33,9 @@ public class TrafficSystemTest{
 		testSystem2.step();	
 		} 		
 	}
-	/*
-	@Test(expected = OverflowException.class)
-	public void carsShouldTurnAndOverflow(){
-		//to test that cars can run turnlane, be blocked and overflow
-		TrafficSystem testSystem3 = new TrafficSystem(10,10,3,3,0,3,0);
-		for(int i = 0; i < 20; i++){
-		testSystem3.step();
-		}
-	}
 	
-	@Test(expected = OverflowException.class)
-	public void carsShouldForwardAndOverflow(){
-		//to test that cars can run forward, be blocked and overflow
-		TrafficSystem testSystem4 = new TrafficSystem(10,0,3,3,0,0,3);
-		for(int i = 0; i < 20; i++){
-		testSystem4.step();
-		}
-	}
-	*/
+
+	
 }
+	
+

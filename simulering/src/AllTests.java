@@ -4,7 +4,8 @@ import org.junit.runners.Suite.SuiteClasses;
 
 
 @RunWith(Suite.class)
-@SuiteClasses({ CarPositionTest.class, LaneTest.class, TrafficSystemTest.class })
+@SuiteClasses({LaneTest.class, TrafficSystemTest.class })
 public class AllTests {
 
 }
+//Car √r meningsl√s att testa; l√gga in ett "Knows their placetest" f√r trafficsys?

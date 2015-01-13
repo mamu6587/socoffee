@@ -1,15 +1,7 @@
 public class Lane {
-	@SuppressWarnings("serial")
-	public static class OverflowException extends RuntimeException{
-		//private String message;
-		
-		public OverflowException(String s){
-			super(s);
-			}
 		
 		/*	public String getMessage(){
 				return this.message;*/
-		}
 	
 
 
@@ -123,18 +115,15 @@ public class Lane {
      */  
 
   
-	    public void putLast(Car c) throws OverflowException{
+	    public void putLast(Car c){
 	    	
-	    	if(!this.lastFree()){
-	    		throw new OverflowException("Too many cars");
-	    		}
 	    	// Place a car on the last CarPosition (if possible)
-	    	else {
+
 	   		 this.theLane[this.theLane.length - 1].setCar(c); 
 	         //set the CarPositions currentCar to car c
 	     		 c.setPosition(this.theLane[this.theLane.length - 1]); 
 	         //update the Cars currentPosition
-	     }
+	     
 	    }
 	    
 	    
